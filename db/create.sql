@@ -1,17 +1,17 @@
-DROP TABLE IF EXISTS people, animals, species;
+DROP TABLE IF EXISTS People, Animals, Species;
 
-CREATE TABLE species (
+CREATE TABLE Species (
     id          SERIAL      PRIMARY KEY,
     name        TEXT        UNIQUE
 );
 
-CREATE TABLE animals (
+CREATE TABLE Animals (
     id          SERIAL      PRIMARY KEY,
     speciesId   INT         REFERENCES species(id),
     name        TEXT
 );
 
-CREATE TABLE people (
+CREATE TABLE People (
     id       SERIAL     PRIMARY KEY,
     name     TEXT,
     age      INT    CHECK(age >= 0 AND age <= 120),
